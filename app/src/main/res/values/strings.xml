@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ColorButtons</string>
+    <string name="hint_button_color">Color</string>
+</resources>
