@@ -4,5 +4,4 @@
 
     <corners
         button_shape:radius="@dimen/button_corner_radius"/>
-    <solid button_shape:color="@color/colorGrey400"/>
 </shape>

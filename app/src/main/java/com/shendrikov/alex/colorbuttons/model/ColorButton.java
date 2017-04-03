@@ -5,8 +5,6 @@ import android.graphics.Color;
 import android.support.annotation.ColorRes;
 import android.util.Log;
 
-import com.shendrikov.alex.colorbuttons.R;
-
 /**
  * Created by Alex on 06.01.2017.
  */
@@ -16,7 +14,6 @@ public class ColorButton {
     private Context mContext;
 
     public static final String LOG_TAG = "MyLogs";
-
 
     public static final int RED = -769226;
     public static final int ORANGE = -26624;
@@ -42,6 +39,9 @@ public class ColorButton {
     }
 
     private String mTitle;
+    private boolean mSelected = false;
+    @ColorRes
+    private int mColorId;
 
     public String getTitle() {
         return mTitle;
@@ -49,6 +49,14 @@ public class ColorButton {
 
     public void setTitle(String title) {
         this.mTitle = title;
+    }
+
+    public int getColorId() {
+        return mColorId;
+    }
+
+    public void setColorId(int mColorId) {
+        this.mColorId = mColorId;
     }
 
     public String getColorName(@ColorRes int colorId) {
@@ -131,95 +139,11 @@ public class ColorButton {
         return colorName;
     }
 
-    @ColorRes
-    public static int getColorId(String nameOfTheColor) {
+    public boolean isSelected() {
+        return mSelected;
+    }
 
-        @ColorRes
-        int resourceColor = 0;
-
-            switch(nameOfTheColor) {
-                case "Red":
-                    resourceColor = R.color.Red500;
-                    Log.d(LOG_TAG, "--getColorId()-- " + nameOfTheColor);
-                    break;
-                case "Orange":
-                    resourceColor = R.color.Orange500;
-                    Log.d(LOG_TAG, "--getColorId()-- " + nameOfTheColor);
-                    break;
-                case "Indigo":
-                    resourceColor = R.color.Indigo500;
-                    Log.d(LOG_TAG, "--getColorId()-- " + nameOfTheColor);
-                    break;
-                case "Green":
-                    resourceColor = R.color.Green500;
-                    Log.d(LOG_TAG, "--getColorId()-- " + nameOfTheColor);
-                    break;
-                case "Yellow":
-                    resourceColor = R.color.Yellow500;
-                    Log.d(LOG_TAG, "--getColorId()-- " + nameOfTheColor);
-                    break;
-                case "Blue":
-                    resourceColor = R.color.Blue500;
-                    Log.d(LOG_TAG, "--getColorId()-- " + nameOfTheColor);
-                    break;
-                case "Pink":
-                    resourceColor = R.color.Pink500;
-                    Log.d(LOG_TAG, "--getColorId()-- " + nameOfTheColor);
-                    break;
-                case "Cyan":
-                    resourceColor = R.color.Cyan500;
-                    Log.d(LOG_TAG, "--getColorId()-- " + nameOfTheColor);
-                    break;
-                case "Broun":
-                    resourceColor = R.color.Broun500;
-                    Log.d(LOG_TAG, "--getColorId()-- " + nameOfTheColor);
-                    break;
-                case "Amber":
-                    resourceColor = R.color.Amber500;
-                    Log.d(LOG_TAG, "--getColorId()-- " + nameOfTheColor);
-                    break;
-                case "Purple":
-                    resourceColor = R.color.Purple500;
-                    Log.d(LOG_TAG, "--getColorId()-- " + nameOfTheColor);
-                    break;
-                case "Lime":
-                    resourceColor = R.color.Lime500;
-                    Log.d(LOG_TAG, "--getColorId()-- " + nameOfTheColor);
-                    break;
-                case "Light Blue":
-                    resourceColor = R.color.LightBlue500;
-                    Log.d(LOG_TAG, "--getColorId()-- " + nameOfTheColor);
-                    break;
-                case "Teal":
-                    resourceColor = R.color.Teal500;
-                    Log.d(LOG_TAG, "--getColorId()-- " + nameOfTheColor);
-                    break;
-                case "Light Green":
-                    resourceColor = R.color.LightGreen500;
-                    Log.d(LOG_TAG, "--getColorId()-- " + nameOfTheColor);
-                    break;
-                case "Deep Purple":
-                    resourceColor = R.color.DeepPurple500;
-                    Log.d(LOG_TAG, "--getColorId()-- " + nameOfTheColor);
-                    break;
-                case "Deep Orange":
-                    resourceColor = R.color.DeepOrange500;
-                    Log.d(LOG_TAG, "--getColorId()-- " + nameOfTheColor);
-                    break;
-                case "Blue Green":
-                    resourceColor = R.color.BlueGreen500;
-                    Log.d(LOG_TAG, "--getColorId()-- " + nameOfTheColor);
-                    break;
-                case "Black":
-                    resourceColor = R.color.Black;
-                    Log.d(LOG_TAG, "--getColorId()-- " + nameOfTheColor);
-                    break;
-                default:
-                    resourceColor = R.color.colorGrey900;
-                    Log.d(LOG_TAG, "--getColorId()-- " + nameOfTheColor);
-
-                break;
-            }
-        return resourceColor;
+    public void setSelected(boolean selected) {
+        mSelected = selected;
     }
 }

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.shendrikov.alex.colorbuttons.adapter.ButtonsAdapter;
 import com.shendrikov.alex.colorbuttons.model.ColorButton;
@@ -16,12 +17,12 @@ import butterknife.ButterKnife;
 
 public class ColorButtonsActivity extends AppCompatActivity  {
 
-    public static final String LOG_TAG = "myLogs";
+    public static final String LOG_TAG = ColorButtonsActivity.class.getSimpleName();
 
     @BindView(R.id.my_recycler_view)
     protected RecyclerView mRecyclerView;
+    protected ButtonsAdapter mButtonsAdapter;
 
-    private int[] colorsArray;
     private List<ColorButton> list;
     ColorButton colorButton;
 
@@ -33,23 +34,26 @@ public class ColorButtonsActivity extends AppCompatActivity  {
         ButterKnife.bind(this);
 
         // use a linear layout manager (vertical)
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, mRecyclerView.VERTICAL, false);
+        RecyclerView.LayoutManager layoutManager =
+                new LinearLayoutManager(this, mRecyclerView.VERTICAL, false);
         mRecyclerView.setLayoutManager(layoutManager);
 
         //initialize color array from color.xml
-        colorsArray = getResources().getIntArray(R.array.colors);
+        int[] colorsArray = getResources().getIntArray(R.array.colors);
 
         //create and initialize list of buttons
         list = new ArrayList<>();
         for (int i = 0; i < colorsArray.length; i++) {
             colorButton = new ColorButton(getApplicationContext());
             colorButton.setTitle(colorButton.getColorName(colorsArray[i]));
+            colorButton.setColorId(colorsArray[i]);
+            Log.d(LOG_TAG, colorButton.getTitle() + ", colorId = " + colorButton.getColorId());
 
             list.add(colorButton);
         }
 
         // specify an adapter (see also next example)
-        ButtonsAdapter buttonsAdapter = new ButtonsAdapter(getBaseContext(), list);
-        mRecyclerView.setAdapter(buttonsAdapter);
+        mButtonsAdapter = new ButtonsAdapter(getBaseContext(), list);
+        mRecyclerView.setAdapter(mButtonsAdapter);
     }
 }
