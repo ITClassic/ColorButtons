@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
 
 public class ButtonsAdapter extends RecyclerView.Adapter<ButtonsAdapter.ViewHolder> {
 
-    public static final String LOG_TAG = "myLogs";
+    public static final String LOG_TAG = ButtonsAdapter.class.getSimpleName();
 
     private ColorButton mColorButton;
 
@@ -37,6 +37,7 @@ public class ButtonsAdapter extends RecyclerView.Adapter<ButtonsAdapter.ViewHold
         mContext = context;
         notifyDataSetChanged();
     }
+    private int defaultButtonHeight;
 
     @Override
     public ButtonsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -48,10 +49,9 @@ public class ButtonsAdapter extends RecyclerView.Adapter<ButtonsAdapter.ViewHold
 
         // Return a new holder instance
         ViewHolder viewHolder = new ViewHolder(colorButtonView);
+        defaultButtonHeight = colorButtonView.getHeight();
         return viewHolder;
     }
-
-    private int defaultButtonHeight;
 
     @Override
     public void onBindViewHolder(final ButtonsAdapter.ViewHolder holder, final int position) {
@@ -63,8 +63,6 @@ public class ButtonsAdapter extends RecyclerView.Adapter<ButtonsAdapter.ViewHold
         // Set item views based on your views and data model
         final Button button = holder.buttonView;
         button.setText(mColorButton.getTitle());
-
-         defaultButtonHeight = button.getHeight();
 
         final GradientDrawable gradientDrawable = (GradientDrawable) button.getBackground();
 
