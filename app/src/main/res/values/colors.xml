@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorGrey900">#212121</color>
-    <color name="colorGrey600">#757575</color>
+    <color name="colorGrey500">#9E9E9E</color>
     <array name="colors">
         <item>#F44336</item>
         <item>#FF9800</item>

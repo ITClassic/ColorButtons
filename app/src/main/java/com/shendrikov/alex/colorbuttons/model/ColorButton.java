@@ -11,9 +11,9 @@ import android.util.Log;
 
 public class ColorButton {
 
-    private Context mContext;
+    public Context mContext;
 
-    public static final String LOG_TAG = "MyLogs";
+    public static final String LOG_TAG = ColorButton.class.getSimpleName();
 
     public static final int RED = -769226;
     public static final int ORANGE = -26624;
@@ -23,7 +23,7 @@ public class ColorButton {
     public static final int BLUE = -14575885;
     public static final int PINK = -1499549;
     public static final int CYAN = -16728876;
-    public static final int BROUN = -8825528;
+    public static final int BROWN = -8825528;
     public static final int AMBER = -16121;
     public static final int PURPLE = -6543440;
     public static final int LIME = -3285959;
@@ -95,9 +95,9 @@ public class ColorButton {
                 Log.d(LOG_TAG, "Cyan = " + ColorButton.CYAN);
                 colorName = "Cyan";
                 break;
-            case ColorButton.BROUN:
-                Log.d(LOG_TAG, "Broun = " + ColorButton.BROUN);
-                colorName = "Broun";
+            case ColorButton.BROWN:
+                Log.d(LOG_TAG, "Brown = " + ColorButton.BROWN);
+                colorName = "Brown";
                 break;
             case ColorButton.AMBER:
                 Log.d(LOG_TAG, "Amber = " + ColorButton.AMBER);

@@ -56,7 +56,7 @@ public class ButtonsAdapter extends RecyclerView.Adapter<ButtonsAdapter.ViewHold
     @Override
     public void onBindViewHolder(final ButtonsAdapter.ViewHolder holder, final int position) {
 
-        final int defaultColorId = mContext.getResources().getColor(R.color.colorGrey600);
+        final int defaultColorId = mContext.getResources().getColor(R.color.colorGrey500);
         // Get the data model based on position
         mColorButton = mColorButtonsList.get(position);
 
@@ -106,7 +106,7 @@ public class ButtonsAdapter extends RecyclerView.Adapter<ButtonsAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        return mColorButtonsList.size();
+        return mColorButtonsList == null ? 0 : mColorButtonsList.size();
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
